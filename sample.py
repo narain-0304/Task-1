@@ -39,6 +39,7 @@ sns.boxplot(data=data[scaled_cols])
 plt.xticks(rotation=45)
 plt.title("Boxplot of Scaled Features")
 plt.show()
+
 def remove_outliers(df, columns):
     for col in columns:
         Q1 = df[col].quantile(0.25)
@@ -53,3 +54,5 @@ data_cleaned = remove_outliers(data, scaled_cols)
 
 print(data_cleaned.head())
 print("Final shape after outlier removal:", data_cleaned.shape)
+
+data_cleaned.to_csv("Liver-Patient-Cleaned.csv", index=False)
